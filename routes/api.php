@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/user', function () {
-    return view('user');
-});
+
+Route::get('/users', 'Api\UserController@index');
+
+Route::get('/users/show/{id}', 'Api\UserController@show');
